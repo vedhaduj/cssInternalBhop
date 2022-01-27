@@ -17,7 +17,7 @@ int main()
 		while (localplayer == NULL)
 			  localplayer = *(DWORD*)(gameModule + localplayer);
 		
-	while (!GetAsyncKeyState(VK_END))
+	while (!GetAsyncKeyState(VK_END)) //to lazy to free lib and exit thread
 	{
 		byte flag = *(BYTE*)(localplayer + flags);
 
