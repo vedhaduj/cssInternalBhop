@@ -14,12 +14,16 @@ int main()
 	MessageBox(0, "Loading gamemodule + localplayer", "Loading gamemodule + localplayer", MB_OK); //best debug method
 
 	if (localplayer == NULL) //sort of broken since starting a new game will cause the bhop not to work
+	{
 		while (localplayer == NULL)
+		{
 			  localplayer = *(DWORD*)(gameModule + localplayer);
+		}
+	}
 		
 	while (!GetAsyncKeyState(VK_END)) //to lazy to free lib and exit thread
 	{
-		byte flag = *(BYTE*)(localplayer + flags);
+		byte flag = *(BYTE*)(localplayer + flags);  //you can dereference it into an int as well
 
 		if (GetAsyncKeyState(VK_SPACE) && flag & (1 << 0)) //do not switch! 
 		{			
