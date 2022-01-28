@@ -11,7 +11,7 @@ int main()
 	gameModule = (DWORD)GetModuleHandle("client.dll");
 	localplayer = *(DWORD*)(gameModule + localplayer);
 
-	MessageBox(0, "Loading gamemodule + localplayer", "Loading gamemodule + localplayer", MB_OK);
+	MessageBox(0, "Loading gamemodule + localplayer", "Loading gamemodule + localplayer", MB_OK); //best debug method
 
 	if (localplayer == NULL) //sort of broken since starting a new game will cause the bhop not to work
 		while (localplayer == NULL)
