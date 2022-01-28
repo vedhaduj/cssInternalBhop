@@ -21,15 +21,15 @@ int main()
 		}
 	}
 		
-	//while (!GetAsyncKeyState(VK_END)) //to lazy to free lib and exit thread 
-	//{
+	while (!GetAsyncKeyState(VK_END)) //to lazy to free lib and exit thread 
+	{
 		byte flag = *(BYTE*)(localplayer + flags);  //you can dereference it into an int as well
 
 		if (GetAsyncKeyState(VK_SPACE) && flag & (1 << 0)) //do not switch! 
 		{			
 		  *(DWORD*)(gameModule + forcejump) = 6;		
 		}
-	//}
+	}
 }
 
 //dll injecto!
