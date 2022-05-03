@@ -2,14 +2,6 @@
 #include <iostream>
 #include <thread>
 
-//MAY 2nd 2022
-/*
-  WHAT YOU ARE SEEING HERE IS CODE I MADE WHEN I WAS KINDA TWEAKED
-  ALSO THE OFFSETS WERE HARD TO FIND SO I WAS PROUD
-  TALLYHO
-*/
-
-
 
 int main()
 {
@@ -22,8 +14,8 @@ int main()
 
 	MessageBox(0, "Loading gamemodule + localplayer", "Loading gamemodule + localplayer", MB_OK); //best debug method
 
-	if (localplayer == NULL) //sort of broken since starting a new game will cause the bhop not to work
-	{                        //edit as of may 2nd 2022: I forgor to loop thread
+	if (localplayer == NULL) 
+	{                        
 		while (localplayer == NULL)
 		{
 			  localplayer = *(DWORD*)(gameModule + localplayer);
@@ -32,9 +24,9 @@ int main()
 		
 	while (!GetAsyncKeyState(VK_END)) //to lazy to free lib and exit thread ; this is so stupid
 	{
-		byte flag = *(BYTE*)(localplayer + flags);  //you can dereference it into an int as well ; ofc you can 
+		byte flag = *(BYTE*)(localplayer + flags); 
 
-		if (GetAsyncKeyState(VK_SPACE) && flag & (1 << 0)) //do not switch! ; what the 
+		if (GetAsyncKeyState(VK_SPACE) && flag & (1 << 0)) 
 		{			
 		  *(DWORD*)(gameModule + forcejump) = 6;		
 		}
