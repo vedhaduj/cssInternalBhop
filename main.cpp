@@ -12,17 +12,8 @@ int main()
 	gameModule = (DWORD)GetModuleHandle("client.dll");
 	localplayer = *(DWORD*)(gameModule + localplayer);
 
-	MessageBox(0, "Loading gamemodule + localplayer", "Loading gamemodule + localplayer", MB_OK); //best debug method
-
-	if (localplayer == NULL) 
-	{                        
-		while (localplayer == NULL)
-		{
-			  localplayer = *(DWORD*)(gameModule + localplayer);
-		}
-	}
 		
-	while (!GetAsyncKeyState(VK_END)) //to lazy to free lib and exit thread ; this is so stupid
+	while (!GetAsyncKeyState(VK_END)) 
 	{
 		byte flag = *(BYTE*)(localplayer + flags); 
 
@@ -33,7 +24,6 @@ int main()
 	}
 }
 
-//dll injecto!
 BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, LPVOID lpReserved)
 {
 	if (dwReason == DLL_PROCESS_ATTACH) {
